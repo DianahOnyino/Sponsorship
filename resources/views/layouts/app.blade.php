@@ -39,8 +39,10 @@
     @include("flash_message")
 
     @include('layouts.header')
+
     <div class="app-body">
         @include('layouts.sidebar')
+
         <main class="main">
             <div class="container-fluid">
                 <div class="animated fadeIn">

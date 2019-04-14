@@ -13,12 +13,17 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                aria-expanded="false">
-                <img class="img-avatar mx-1" src="{{Auth::user()->avatar_url}}" alt="DO">
+                <img class="img-avatar mx-1"
+                     src="images/logo.png"
+{{--                     src="{{Auth::user()->avatar_url}}" --}}
+                     alt="DO">
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow mt-2">
                 <a class="dropdown-item">
-                    {{ Auth::user()->name }}<br>
-                    <small class="text-muted">{{ Auth::user()->email }}</small>
+{{--                    {{ Auth::user()->name }}<br>--}}
+                    <small class="text-muted">
+{{--                        {{ Auth::user()->email }}--}}
+                    </small>
                 </a>
                 <a class="dropdown-item" href="/profile">
                     <i class="fas fa-user"></i> Profile

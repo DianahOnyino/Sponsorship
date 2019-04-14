@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body p-5">
                     <div class="text-center d-lg-none">
-                        <img src="../../images/main.png" class="mb-5" width="150" alt="Modulr Logo">
+                        <img src="../../images/logo.png" class="mb-5" width="150" alt="Logo">
                     </div>
                     <h1>{{ __('Login') }}</h1>
                     <p class="text-muted">Sign In to your account</p>
@@ -78,7 +78,7 @@
             <div class="card text-white bg-primary py-5 d-md-down-none">
                 <div class="card-body text-center">
                     <div>
-                        <img src="../../images/main.png" class="mb-5" width="150" alt="Modulr Logo">
+                        <img src="../../images/logo.png" class="mb-5" width="150" alt="Logo">
                         <h2>{{ __('Sign up') }}</h2>
                         <p>If you don't have account create one.</p>
                         <a class="btn btn-primary active mt-2"

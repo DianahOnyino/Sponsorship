@@ -8,12 +8,7 @@
                     <div class="card-header">Children Records</div>
 
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-                        You are logged in!
+                        @include('partials._base_form')
                     </div>
                 </div>
             </div>

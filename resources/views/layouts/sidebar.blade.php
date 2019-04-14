@@ -2,19 +2,23 @@
     <nav class="sidebar-nav">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active" href="/dashboard">
-                    <i class="nav-icon icon-speedometer"></i> Dashboard
-                </a>
-            </li>
-            <li class="nav-title">Settings</li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="nav-icon icon-user"></i> Users
+                <a class="nav-link active" href="/children-view">
+                    <i class="fa fa-child" aria-hidden="true"></i> &nbsp; Children
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="nav-icon icon-lock"></i> Roles
+                    <i class="fa fa-user" aria-hidden="true"></i> &nbsp; Sponsors
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-exchange" aria-hidden="true"></i> &nbsp; Sponsorship Assignment
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-money" aria-hidden="true"></i> &nbsp; Contributions
                 </a>
             </li>
         </ul>
