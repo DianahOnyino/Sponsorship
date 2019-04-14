@@ -14,6 +14,10 @@
                     </div>
                     <div class="cell large-6 medium-6 small-12">
                         <input type="text" id="village" name="village" ng-model="village" required>
+                        <span class="help-text error"
+                              ng-show="errors.village"
+                              ng-bind="errors.village">
+                        </span>
                     </div>
                 </div>
             </div>
@@ -32,12 +36,20 @@
                                value="applicable"
                                id="applicable"
                                ng-checked="true"/> &nbsp;&nbsp;
+                        <span class="help-text error"
+                              ng-show="errors.highest_level_of_education"
+                              ng-bind="errors.highest_level_of_education">
+                        </span>
 
                         Not Applicable:
                         <input type="radio" name="highest_level_of_education"
                                ng-model="highest_level_of_education"
                                id="not_applicable"
                                value="not_applicable"/>
+                        <span class="help-text error"
+                              ng-show="errors.highest_level_of_education"
+                              ng-bind="errors.highest_level_of_education">
+                        </span>
                     </div>
 
                 </div>
@@ -55,6 +67,10 @@
                                    ng-model="level"
                                    data-require-pair="#applicable"
                                    required>
+                            <span class="help-text error"
+                                  ng-show="errors.level"
+                                  ng-bind="errors.level">
+                        </span>
                         </div>
                     </div>
 
@@ -70,6 +86,10 @@
                                    ng-model="class_level"
                                    required
                                    data-require-pair="#applicable">
+                            <span class="help-text error"
+                                  ng-show="errors.class_level"
+                                  ng-bind="errors.class_level">
+                        </span>
                         </div>
                     </div>
 
@@ -85,6 +105,10 @@
                                    ng-model="school_name"
                                    required
                                    data-require-pair="#applicable">
+                            <span class="help-text error"
+                                  ng-show="errors.school_name"
+                                  ng-bind="errors.school_name">
+                        </span>
                         </div>
                     </div>
                 </div>
@@ -95,6 +119,14 @@
             </div>
 
         </form>
+
+        @if (count($errors) > 0)
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    jQuery('#createChildRecordModal').foundation('open')
+                });
+            </script>
+        @endif
     </div>
 </div>
 

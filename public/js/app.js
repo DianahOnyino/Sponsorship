@@ -52893,7 +52893,6 @@ app.controller('MainController', ['$http', '$scope', 'Notification', 'ChildRecor
 
   $scope.getChildrenRecords = function (status, filterData) {
     ChildRecords.getPage($scope.tableState, filterData).then(function (result) {
-      console.log(result, 'results over here');
       tableState = $scope.tableState;
       $scope.children_records = result.data.data;
       $scope.meta = result.data.meta;
@@ -52972,14 +52971,11 @@ app.controller('MainController', ['$http', '$scope', 'Notification', 'ChildRecor
         $("#class_level").val("");
         $("#level").val("");
         $("#school_name").val("");
-        $(document).ready(function () {
-          $('#createChildRecordModal').foundation('close');
+        $('#createChildRecordModal').foundation('close');
+        $window.location.href = '/children-view';
+        $http.get('/api/get-updated-children-data').then(function () {
+          $scope.children_records = result.data.data;
         });
-        $window.location.href = '/children-view'; // $('#createChildRecordModal').trigger('reveal:close');
-
-        $scope.getChildrenRecords(); // $scope.relationshipTabScope = angular.element(document.querySelector('#relationshipTab')).scope();
-        //
-        // $scope.relationshipTabScope.getUserPersonalDetails(candidate_id);
       }
     });
   };

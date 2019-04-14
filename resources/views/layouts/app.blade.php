@@ -74,6 +74,7 @@
 
 <script>
     Foundation.addToJquery($);
+
     $(document).foundation();
 </script>
 </body>

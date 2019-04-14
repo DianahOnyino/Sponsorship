@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/get-children-data', 'ApiController@getChildrenData');
+
+Route::get('/get-updated-children-data', 'ApiController@getUpdatedChildrenData');

@@ -8,12 +8,12 @@
                     <div class="card-header">
                         Children Records
 
-                        <a class="pull-right" href="#" data-open="createChildRecordModal">
+                        <a class="pull-right" href="#" data-open="createGuardianRecordModal">
                             Add
                             <i class="fa fa-plus-circle" aria-hidden="true"></i>
                         </a>
 
-                        <div class="small reveal" id="createChildRecordModal" data-reveal>
+                        <div class="small reveal" id="createGuardianRecordModal" data-reveal>
                             @include('children.create')
 
                             <button class="close-button" data-close aria-label="Close modal" type="button">
@@ -21,8 +21,6 @@
                             </button>
                         </div>
                     </div>
-
-                    {{--Records: <%children_records%>--}}
 
                     <div class="card-body">
                         <table st-pipe="callServer" st-table="children_records" class="table responsive table-scroll">

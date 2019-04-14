@@ -26,7 +26,7 @@ class ChildRecordRequest
         ];
 
         $rules = [
-            'first_name' => 'required',
+            'first_name' => 'required|numeric',
             'middle_name' => 'required',
             'last_name' => 'required',
             'date_of_birth' => 'required',

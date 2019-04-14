@@ -4,6 +4,10 @@
     </div>
     <div class="cell large-6 medium-6 small-12">
         <input type="text" name="first_name" ng-model="first_name" id="first_name" required><br>
+        <span class="help-text error"
+              ng-show="errors.first_name"
+              ng-bind="errors.first_name">
+        </span>
     </div>
 </div>
 
@@ -13,6 +17,10 @@
     </div>
     <div class="cell large-6 medium-6 small-12">
         <input type="text" name="middle_name" ng-model="middle_name" id="middle_name">
+        <span class="help-text error"
+              ng-show="errors.middle_name"
+              ng-bind="errors.middle_name">
+        </span>
     </div>
 </div>
 
@@ -22,6 +30,10 @@
     </div>
     <div class="cell large-6 medium-6 small-12">
         <input type="text" name="last_name" ng-model="last_name" id="last_name" required>
+        <span class="help-text error"
+              ng-show="errors.last_name"
+              ng-bind="errors.last_name">
+        </span>
     </div>
 </div>
 
@@ -31,6 +43,10 @@
     </div>
     <div class="cell large-6 medium-6 small-12">
         <input type="text" name="date_of_birth" ng-model="date_of_birth" id="date_of_birth" required>
+        <span class="help-text error"
+              ng-show="errors.date_of_birth"
+              ng-bind="errors.date_of_birth">
+        </span>
     </div>
 </div>
 
@@ -40,6 +56,10 @@
     </div>
     <div class="cell large-6 medium-6 small-12">
         <input type="text" name="age" ng-model="age" id="age" required>
+        <span class="help-text error"
+              ng-show="errors.age"
+              ng-bind="errors.age">
+        </span>
     </div>
 </div>
 
@@ -49,6 +69,10 @@
     </div>
     <div class="cell large-6 medium-6 small-12">
         <input type="text" name="gender" ng-model="gender" id="gender" required>
+        <span class="help-text error"
+              ng-show="errors.gender"
+              ng-bind="errors.gender">
+        </span>
     </div>
 </div>
 
@@ -58,6 +82,10 @@
     </div>
     <div class="cell large-6 medium-6 small-12">
         <input type="text" name="country" ng-model="country" id="country" required>
+        <span class="help-text error"
+              ng-show="errors.country"
+              ng-bind="errors.country">
+        </span>
     </div>
 </div>
 
@@ -67,5 +95,9 @@
     </div>
     <div class="cell large-6 medium-6 small-12">
         <input type="text" name="city" ng-model="city" id="city" required>
+        <span class="help-text error"
+              ng-show="errors.city"
+              ng-bind="errors.city">
+        </span>
     </div>
 </div>

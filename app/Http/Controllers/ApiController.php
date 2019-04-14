@@ -34,4 +34,9 @@ class ApiController extends ApiControlController
 
         return $this->fractal->createData($resource)->toJson();
     }
+
+    public function getUpdatedChildrenData()
+    {
+        return $this->getChildrenData();
+    }
 }
