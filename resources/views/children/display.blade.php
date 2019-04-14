@@ -66,13 +66,14 @@
                             <tr ng-if="children_records.length == 0" ng-cloak>
                                 <td colspan="12">There are no records yet.</td>
                             </tr>
+
                             <tr>
-                                <td class="notification-footer" colspan="5">
-                                    <div class="pull-left" st-pagination="" st-items-by-page="itemsByPage"></div>
+                                <td colspan="12" class="notification-footer">
+                                    <div class="pull-right" st-pagination="" st-items-by-page="itemsByPage"></div>
                                 </td>
-                                <td colspan="3"></td>
                             </tr>
                             </tbody>
+
                             <tbody ng-show="isLoading">
                             <tr>
                                 <td class="text-center loading"><img src="/assets/images/loading.gif"></td>

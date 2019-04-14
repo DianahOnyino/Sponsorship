@@ -78,8 +78,9 @@ app.controller('MainController', ['$http', '$scope', 'Notification', 'ChildRecor
 
     $scope.getChildrenRecords = function (status, filterData) {
         ChildRecords.getPage($scope.tableState, filterData).then(function (result) {
+            console.log(result, 'results over here');
             tableState = $scope.tableState;
-            $scope.children_records = result.data;
+            $scope.children_records = result.data.data;
             $scope.meta = result.data.meta;
             tableState.pagination.numberOfPages = result.data.meta.pagination.total_pages;
             $scope.perPage = tableState.pagination.number;

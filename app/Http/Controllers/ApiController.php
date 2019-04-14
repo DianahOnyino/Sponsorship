@@ -9,19 +9,29 @@
 namespace App\Http\Controllers;
 
 
+use App\API\ChildTransformer;
 use App\Child;
-use App\Person;
+use League\Fractal\Resource\Collection;
 
-class ApiController
+class ApiController extends ApiControlController
 {
     public function getChildrenData()
     {
-        $data = Child::all()->map(function ($child_record) {
-            $person_details = Person::where('id', $child_record->person_id)->first()->toArray();
+        $children =  new Child();
 
-            return array_merge($child_record->toArray(), $person_details);
-        });
+        $filtered = $this->filter($children);
 
-        return $data;
+        return $this->makeSortableFilterablePaginated($filtered, new  ChildTransformer());
+    }
+
+    public function makeSortableFilterablePaginated($filtered, $transformer)
+    {
+        $paginated = $this->sortAndPaginate($filtered);
+
+        $resource = new Collection($paginated['model'], $transformer);
+
+        $this->addPaginationToResource($paginated, $resource);
+
+        return $this->fractal->createData($resource)->toJson();
     }
 }
