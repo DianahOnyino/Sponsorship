@@ -52813,6 +52813,54 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/assets/js/app.js":
+/*!************************************!*\
+  !*** ./resources/assets/js/app.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var app = angular.module('app', ['smart-table', 'ui-notification', 'ngResource', 'ngRoute'], ['$interpolateProvider', function ($interpolateProvider) {
+  $interpolateProvider.startSymbol('<%');
+  $interpolateProvider.endSymbol('%>');
+}]);
+app.config(function (NotificationProvider) {
+  NotificationProvider.setOptions({
+    delay: 7000,
+    startTop: 20,
+    startRight: 10,
+    verticalSpacing: 20,
+    horizontalSpacing: 20,
+    positionX: 'center',
+    positionY: 'top'
+  });
+});
+app.controller('MainController', ['$http', '$scope', 'Notification', function ($http, $scope, Notification) {
+  var ChildEducationDetails = {
+    init: function init() {
+      this.applyConditionalRequired();
+      this.bindUIActions();
+    },
+    bindUIActions: function bindUIActions() {
+      $("input[type='radio'], input[type='checkbox']").on("change", this.applyConditionalRequired);
+    },
+    applyConditionalRequired: function applyConditionalRequired() {
+      $(".require-if-active").each(function () {
+        var el = $(this);
+
+        if ($(el.data("require-pair")).is(":checked")) {
+          el.prop("required", true);
+        } else {
+          el.prop("required", false);
+        }
+      });
+    }
+  };
+  ChildEducationDetails.init();
+}]);
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -52992,13 +53040,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!******************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/assets/js/app.js ./resources/sass/app.scss ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/donyino/Documents/PersonalDevelopmentProjects/sponsorship/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/donyino/Documents/PersonalDevelopmentProjects/sponsorship/resources/assets/js/app.js */"./resources/assets/js/app.js");
 module.exports = __webpack_require__(/*! /Users/donyino/Documents/PersonalDevelopmentProjects/sponsorship/resources/sass/app.scss */"./resources/sass/app.scss");
 
 

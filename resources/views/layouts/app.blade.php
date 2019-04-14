@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" ng-app="app">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +20,20 @@
 
     {{--JQuery--}}
     <script src="/js/jquery.min.js"></script>
+
+    {{--Smart Table--}}
+    <script src="/js/smart-table.min.js"></script>
+
+    {{--Angular UI Notification--}}
+    <script src="/css/angular-ui-notification.min.css"></script>
+
+    <script src="/js/angular-ui-notification.min.js"></script>
+
+    {{--Angular resource--}}
+    <script src="/js/angular-resource.min.js"></script>
+
+    {{--Angular Route--}}
+    <script src="/js/angular-route.min.js"></script>
 
     {{--Bootstrap--}}
     <script src="/bootstrap/bootstrap.min.css"></script>
