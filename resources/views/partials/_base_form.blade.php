@@ -1,23 +1,71 @@
-<label for="first_name">First name:</label> <br>
-<input type="text" name="first_name"><br>
+<div class="grid-x">
+    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+        <label class="centralized-label" for="first_name">First name:</label><br>
+    </div>
+    <div class="cell large-6 medium-6 small-12">
+        <input type="text" name="first_name"><br>
+    </div>
+</div>
 
-<label for="last_name">Middle name:</label><br>
-<input type="text" name="middle_name">
+<div class="grid-x">
+    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+        <label class="centralized-label" for="middle_name">Middle name:</label><br>
+    </div>
+    <div class="cell large-6 medium-6 small-12">
+        <input type="text" name="middle_name">
+    </div>
+</div>
 
-<label for="last_name">Last name:</label><br>
-<input type="text" name="last_name">
+<div class="grid-x">
+    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+        <label class="centralized-label" for="last_name">Last name:</label><br>
+    </div>
+    <div class="cell large-6 medium-6 small-12">
+        <input type="text" name="last_name">
+    </div>
+</div>
 
-<label for="last_name">Date of Birth:</label><br>
-<input type="text" name="date_of_birth">
+<div class="grid-x">
+    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+        <label class="centralized-label" for="date_of_birth">Date of Birth:</label><br>
+    </div>
+    <div class="cell large-6 medium-6 small-12">
+        <input type="text" name="date_of_birth">
+    </div>
+</div>
 
-<label for="last_name">Age:</label><br>
-<input type="text" name="age">
+<div class="grid-x">
+    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+        <label class="centralized-label" for="age">Age:</label><br>
+    </div>
+    <div class="cell large-6 medium-6 small-12">
+        <input type="text" name="age">
+    </div>
+</div>
 
-<label for="last_name">Gender:</label><br>
-<input type="text" name="gender">
+<div class="grid-x">
+    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+        <label class="centralized-label" for="gender">Gender:</label><br>
+    </div>
+    <div class="cell large-6 medium-6 small-12">
+        <input type="text" name="gender">
+    </div>
+</div>
 
-<label for="last_name">Country:</label><br>
-<input type="text" name="country">
+<div class="grid-x">
+    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+        <label class="centralized-label" for="country">Country:</label><br>
+    </div>
+    <div class="cell large-6 medium-6 small-12">
+        <input type="text" name="country">
+    </div>
+</div>
 
-<label for="last_name">City:</label><br>
-<input type="text" name="city">
+<div class="grid-x">
+    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+        <label class="centralized-label" for="city">City:</label><br>
+    </div>
+    <div class="cell large-6 medium-6 small-12">
+        <input type="text" name="city">
+    </div>
+</div>

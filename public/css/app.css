@@ -14513,6 +14513,41 @@ a.text-dark:focus {
   padding: 20px 30px !important;
 }
 
+.modal-space-top {
+  margin-top: 20px !important;
+}
+
+.centralized-label {
+  float: right;
+  margin-right: 13px;
+  padding-top: 7px;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.form-label-header {
+  background: #85C1E9;
+  margin-top: 10px;
+  padding: 10px 19px;
+}
+
+/* Small only */
+
+/* Medium and up */
+
+/* Medium only */
+
+/* Large and up */
+
+@media screen and (min-width: 64em) {
+  #createChildRecordModal {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+  }
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

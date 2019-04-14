@@ -8,10 +8,18 @@
                     <div class="card-header">
                         Children Records
 
-                        <a class="pull-right">
+                        <a class="pull-right" href="#" data-open="createChildRecordModal">
                             Add
                             <i class="fa fa-plus-circle" aria-hidden="true"></i>
                         </a>
+
+                        <div class="small reveal" id="createChildRecordModal" data-reveal>
+                            @include('children.create')
+
+                            <button class="close-button" data-close aria-label="Close modal" type="button">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                     </div>
 
                     <div class="card-body">

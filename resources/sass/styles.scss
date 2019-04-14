@@ -13,3 +13,44 @@
 .main .container-fluid {
   padding: 20px 30px !important;
 }
+
+.modal-space-top {
+  margin-top: 20px !important;
+}
+
+.centralized-label {
+  float: right;
+  margin-right: 13px;
+  padding-top: 7px;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.form-label-header {
+  background: #85C1E9;
+  margin-top: 10px;
+  padding: 10px 19px;
+}
+
+//Media queries
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+  #createChildRecordModal {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+  }
+}
