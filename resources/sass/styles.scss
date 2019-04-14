@@ -34,6 +34,20 @@
   padding: 10px 19px;
 }
 
+.applicable-radios {
+  padding: 10px 0;
+}
+
+.form-submit-section {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.padded-botton {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
 //Media queries
 /* Small only */
 @media screen and (max-width: 39.9375em) {
@@ -50,7 +64,7 @@
 /* Large and up */
 @media screen and (min-width: 64em) {
   #createChildRecordModal {
-    margin-top: 50px !important;
+    margin-top: 30px !important;
     margin-bottom: 50px !important;
   }
 }

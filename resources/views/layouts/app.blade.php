@@ -73,6 +73,7 @@
 <script src="/js/what-input.min.js"></script>
 
 <script>
+    Foundation.addToJquery($);
     $(document).foundation();
 </script>
 </body>

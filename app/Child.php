@@ -8,4 +8,5 @@ class Child extends Model
 {
     protected $table = 'children';
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
 }

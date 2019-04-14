@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid" ng-controller="MainController">
+    <div class="container-fluid">
         <div class="grid-x justify-content-center">
             <div class="cell large-12 medium-12 small-12">
                 <div class="card">
@@ -22,16 +22,10 @@
                         </div>
                     </div>
 
+                    {{--Records: <%children_records%>--}}
+
                     <div class="card-body">
                         <table st-pipe="callServer" st-table="children_records" class="table responsive table-scroll">
-                            <thead class="no_head_style">
-                            <tr>
-                                <th colspan="2">
-                                    <input st-search class="form-control" placeholder="Search ..." type="text"/>
-                                </th>
-                            </tr>
-                            </thead>
-
                             <thead>
                             <tr>
                                 <td></td>
@@ -43,7 +37,6 @@
                                 <td>City</td>
                                 <td>Village</td>
                                 <td>Highest Level of Education</td>
-                                <td>Level</td>
                                 <td>Class Level</td>
                                 <td>School Name</td>
                             </tr>

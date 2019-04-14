@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Child;
-use Illuminate\Http\Request;
+use App\Http\Requests\ChildRecordRequest;
+use App\Person;
+use App\Repositories\ChildRepository;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 
 class ChildController extends Controller
 {
@@ -14,8 +18,40 @@ class ChildController extends Controller
 
     public function index()
     {
-        $children_records = Child::all();
+        return view('children.display');
+    }
 
-        return view('children.display', compact('children_records'));
+    public function save()
+    {
+        $input = Input::all();
+
+        $child_record_request = new ChildRecordRequest();
+
+        $validator = $child_record_request->validate($input);
+
+        if ($validator->fails()) {
+            return Response::json(['errors' => $validator->errors()]);
+        }
+
+        $existing_person_record = Person::where('first_name', $input['first_name'])
+                                      ->where('last_name', $input['last_name'])
+                                      ->where('middle_name', $input['last_name'])
+                                      ->count();
+
+        if ($existing_person_record > 0) {
+            return Response::json(['duplicate_error' => 'An exact child record already exists!']);
+        }
+
+        $childRepository = new ChildRepository();
+
+        try {
+            $person_details_id = $childRepository->savePersonDetails($input);
+
+            $childRepository->saveChildDetails($person_details_id, $input);
+        } catch (\Exception $exception){
+
+        }
+
+        return "Information successfully saved!";
     }
 }
