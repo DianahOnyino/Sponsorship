@@ -12,17 +12,6 @@ class ChildSponsorDetail extends Model
     protected $table = 'child_sponsor_details';
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    protected $searchable = [
-        'columns' => [
-            'person.first_name' => 10,
-            'person.middle_name' => 10,
-            'person.last_name' => 10,
-        ],
-        'joins' => [
-            'person' => ['sponsors.person_id', 'person.id'],
-        ],
-    ];
-
     public function sponsor()
     {
         return $this->belongsTo(Sponsor::class, 'sponsor_id');

@@ -48,14 +48,6 @@
                         <div>
                             <table st-pipe="callServer" st-table="children_sponsors_records" class="table responsive
                             table-scroll">
-                                <thead class="no_head_style">
-                                <tr>
-                                    <th colspan="4">
-                                        <input st-search class="form-control" placeholder="Search ..." type="text"/>
-                                    </th>
-                                </tr>
-                                </thead>
-
                                 <thead>
                                 <tr>
                                     <td></td>
