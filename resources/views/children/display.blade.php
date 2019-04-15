@@ -105,10 +105,10 @@
                         </div>
 
                         <div id="deleteChildDetailsModal" class="reveal" data-reveal ng-controller="MainController">
-                            <h4 class="profile-item-title">
+                            <div>
                                 Are you sure you want to delete this record? This will
                                 lead to deletion of other subsequent records attached to this record.
-                            </h4>
+                            </div>
 
                             <div class="row form-submit-section">
                                 <a ng-click="deleteChildRecord('/child/delete/' + delete_record_id)"

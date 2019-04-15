@@ -52996,6 +52996,7 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
         $http.get('/api/get-updated-children-data').then(function (result) {
           $scope.children_records = result.data.data;
         });
+        $window.location.reload();
       }
     });
   };
@@ -53054,11 +53055,12 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
       $("#village").val("");
       $("#class_level").val("");
       $("#level").val("");
-      $("#school_name").val("");
-      $('#editChildRecordModal').foundation('close');
+      $("#school_name").val(""); // $('#editChildRecordModal').foundation('close');
+
       $http.get('/api/get-updated-children-data').then(function (result) {
         $scope.children_records = result.data.data;
       });
+      $window.location.reload();
     });
   };
 
@@ -53074,6 +53076,7 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
       $scope.deleteModalScope = angular.element(document.querySelector('#deleteChildDetailsModal')).scope();
       $http.get('/api/get-updated-children-data').then(function (result) {
         $scope.deleteModalScope.children_records = result.data.data;
+        $window.location.reload();
       });
     });
   };
@@ -53147,8 +53150,8 @@ app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification
         $("#country").val("");
         $("#city").val("");
         $("#occupation").val("");
-        $("#motivation").val(""); // $('#createChildRecordModal').foundation('close');
-        // $window.location.reload();
+        $("#motivation").val("");
+        $window.location.reload();
       }
     });
   };
@@ -53193,6 +53196,7 @@ app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification
       $("#occupation").val("");
       $("#motivation").val(""); // $('#editSponsorRecordModal').foundation('close');
 
+      $window.location.reload();
       $http.get('/api/get-updated-sponsor-data').then(function (result) {
         $scope.sponsor_records = result.data.data;
       });
@@ -53209,6 +53213,7 @@ app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification
     $http.get(url).then(function () {
       Notification.success('Item deleted');
       $scope.deleteModalScope = angular.element(document.querySelector('#deleteSponsorDetailsModal')).scope();
+      $window.location.reload();
       $http.get('/api/get-updated-sponsor-data').then(function (result) {
         $scope.deleteModalScope.sponsor_records = result.data.data;
       });
