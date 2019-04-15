@@ -3,7 +3,7 @@
         <label class="centralized-label" for="first_name">First name:</label><br>
     </div>
     <div class="cell large-6 medium-6 small-12">
-        <input type="text" name="first_name" ng-model="first_name" id="first_name" required><br>
+        <input type="text" name="first_name" ng-model="first_name" id="first_name" required>
         <span class="help-text error"
               ng-show="errors.first_name"
               ng-bind="errors.first_name">

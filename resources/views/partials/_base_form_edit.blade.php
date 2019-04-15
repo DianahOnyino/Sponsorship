@@ -7,7 +7,7 @@
         <input type="text" name="first_name"
                ng-model="child_record.first_name"
                id="first_name"
-               required><br>
+               required>
         <span class="help-text error"
               ng-show="errors.first_name"
               ng-bind="errors.first_name">

@@ -2,7 +2,7 @@
 Error: File to import not found or unreadable: ~font-awesome/scss/font-awesome.scss.
         on line 6 of app.scss
 
-1: 
+1: @import "../../node_modules/foundation-sites/scss/foundation";
 2: // Fonts
 3: @import url('https://fonts.googleapis.com/css?family=Nunito');
 4: 
@@ -53,4 +53,4 @@ app.scss:6
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: ~font-awesome/scss/font-awesome.scss.\A         on line 6 of app.scss\A \A 1: \A 2: // Fonts\A 3: @import url('https://fonts.googleapis.com/css?family=Nunito');\A 4: \A 5: //Font Awesome\A 6: @import \"~font-awesome/scss/font-awesome.scss\";\A 7: \A 8: // Icons\A 9: @import '~simple-line-icons/css/simple-line-icons.css';\A 10: \A 11: // Coreui"; }
+  content: "Error: File to import not found or unreadable: ~font-awesome/scss/font-awesome.scss.\A         on line 6 of app.scss\A \A 1: @import \"../../node_modules/foundation-sites/scss/foundation\";\A 2: // Fonts\A 3: @import url('https://fonts.googleapis.com/css?family=Nunito');\A 4: \A 5: //Font Awesome\A 6: @import \"~font-awesome/scss/font-awesome.scss\";\A 7: \A 8: // Icons\A 9: @import '~simple-line-icons/css/simple-line-icons.css';\A 10: \A 11: // Coreui"; }

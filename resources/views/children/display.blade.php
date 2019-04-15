@@ -26,7 +26,7 @@
                         <table st-pipe="callServer" st-table="children_records" class="table responsive table-scroll">
                             <thead class="no_head_style">
                             <tr>
-                                <th colspan="2">
+                                <th colspan="4">
                                     <input st-search class="form-control" placeholder="Search ..." type="text"/>
                                 </th>
                             </tr>
@@ -107,10 +107,12 @@
                         </div>
 
                         <div id="deleteChildDetailsModal" class="reveal" data-reveal ng-controller="MainController">
-                            <h4 class="profile-item-title">Are you sure you want to delete this record? This will
-                                lead to deletion of other subsequent records attached to this record.</h4>
+                            <h4 class="profile-item-title">
+                                Are you sure you want to delete this record? This will
+                                lead to deletion of other subsequent records attached to this record.
+                            </h4>
 
-                            <div class="row">
+                            <div class="row form-submit-section">
                                 <a ng-click="deleteChildRecord('/child/delete/' + delete_record_id)"
                                    style="margin-bottom: -5px;"
                                    class="button alert" aria-label="Close modal" data-close>

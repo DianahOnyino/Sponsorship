@@ -71,10 +71,11 @@
 
 {{--What Input--}}
 <script src="/js/what-input.min.js"></script>
-
 <script>
     Foundation.addToJquery($);
+</script>
 
+<script>
     $(document).foundation();
 </script>
 </body>

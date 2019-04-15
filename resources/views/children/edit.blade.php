@@ -13,7 +13,6 @@
                     </div>
                     <div class="cell large-6 medium-6 small-12">
                         <input type="text" id="village" name="village" ng-model="child_record.village" required>
-                            <input type="text" id="person_id" name="person_id" data-ng-model="child_record.person_id">
                         <span class="help-text error"
                               ng-show="errors.village"
                               ng-bind="errors.village">
@@ -115,8 +114,7 @@
             </div>
 
             <div class="form-submit-section">
-                <a href="" ng-click="updateChildEducationDetails(child_record)">Edit</a>
-                {{--<button type="submit" class="btn btn-primary px4 padded-botton">Edit</button>--}}
+                <a href="" class="link-to-button padded-botton" ng-click="updateChildEducationDetails(child_record)">Edit</a>
             </div>
         </form>
 

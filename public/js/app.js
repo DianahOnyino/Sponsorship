@@ -52877,7 +52877,7 @@ app.factory('ChildRecords', ['$http', 'FilteredTableState', function ($http, Fil
 
   return childRecords;
 }]);
-app.controller('MainController', ['$http', '$scope', 'Notification', 'ChildRecords', function ($http, $scope, Notification, ChildRecords) {
+app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 'ChildRecords', function ($http, $scope, $window, Notification, ChildRecords) {
   $scope.children_records = [];
   $scope.itemsByPage = 10;
 
@@ -52972,8 +52972,7 @@ app.controller('MainController', ['$http', '$scope', 'Notification', 'ChildRecor
         $("#level").val("");
         $("#school_name").val("");
         $('#createChildRecordModal').foundation('close');
-        $window.location.href = '/children-view';
-        $http.get('/api/get-updated-children-data').then(function () {
+        $http.get('/api/get-updated-children-data').then(function (result) {
           $scope.children_records = result.data.data;
         });
       }
@@ -53036,7 +53035,9 @@ app.controller('MainController', ['$http', '$scope', 'Notification', 'ChildRecor
       $("#level").val("");
       $("#school_name").val("");
       $('#editChildRecordModal').foundation('close');
-      $window.location.reload();
+      $http.get('/api/get-updated-children-data').then(function (result) {
+        $scope.children_records = result.data.data;
+      });
     });
   };
 
