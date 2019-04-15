@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid" ng-controller="MainController">
+    <div class="container-fluid" ng-controller="ChildSponsorController">
         <div class="grid-x justify-content-center">
             <div class="cell large-12 medium-12 small-12">
                 <div class="card">
@@ -44,6 +44,54 @@
                                 </div>
                             </div>
                         </form>
+
+                        <div>
+                            <table st-pipe="callServer" st-table="children_sponsors_records" class="table responsive
+                            table-scroll">
+                                <thead class="no_head_style">
+                                <tr>
+                                    <th colspan="4">
+                                        <input st-search class="form-control" placeholder="Search ..." type="text"/>
+                                    </th>
+                                </tr>
+                                </thead>
+
+                                <thead>
+                                <tr>
+                                    <td></td>
+                                    <td>Sponsor</td>
+                                    <td>Child</td>
+                                    <td>Date Assigned</td>
+                                    <td>Assigned By</td>
+                                </tr>
+                                </thead>
+                                <tbody ng-show="!isLoading">
+                                <tr ng-if="children_sponsors_records.length != 0"
+                                    ng-repeat="child_sponsor in children_sponsors_records track by $index" ng-cloak>
+                                    <td><% $index+1 %></td>
+                                    <td><% child_sponsor.sponsor %></td>
+                                    <td><% child_sponsor.child %></td>
+                                    <td><% child_sponsor.date_assigned %></td>
+                                    <td><% child_sponsor.assigned_by %></td>
+                                </tr>
+                                <tr ng-if="children_sponsors_records.length == 0" ng-cloak>
+                                    <td colspan="12">There are no records yet.</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="12" class="notification-footer">
+                                        <div class="pull-right" st-pagination="" st-items-by-page="itemsByPage"></div>
+                                    </td>
+                                </tr>
+                                </tbody>
+
+                                <tbody ng-show="isLoading">
+                                <tr>
+                                    <td class="text-center loading"><img src="/assets/images/loading.gif"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

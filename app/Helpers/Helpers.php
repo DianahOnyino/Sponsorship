@@ -12,16 +12,16 @@ use App\Sponsor;
  */
 function sponsorsArray()
 {
-    $sponsors_ids = Sponsor::all()->pluck('person_id')->toArray();
+    $sponsors = Sponsor::all();
 
     $sponsors_array[0] = "Select Sponsor";
 
-    foreach ($sponsors_ids as $sponsors_id) {
-        $person = Person::where('id', $sponsors_id)->first();
+    foreach ($sponsors as $sponsor) {
+        $person = $sponsor->person;
 
         $sponsor_full_name = $person->first_name . ' ' . $person->middle_name . ' '. $person->last_name;
 
-        $sponsors_array[$sponsors_id] = $sponsor_full_name;
+        $sponsors_array[$sponsor->id] = $sponsor_full_name;
     }
 
     return $sponsors_array;
@@ -29,16 +29,16 @@ function sponsorsArray()
 
 function childrenArray()
 {
-    $children_ids = Child::all()->pluck('person_id')->toArray();
+    $children = Child::all();
 
     $children_array[0] = "Select Child";
 
-    foreach ($children_ids as $child_id) {
-        $person = Person::where('id', $child_id)->first();
+    foreach ($children as $child) {
+        $person = $child->person;
 
         $child_full_name = $person->first_name . ' ' . $person->middle_name . ' '. $person->last_name;
 
-        $children_array[$child_id] = $child_full_name;
+        $children_array[$child->id] = $child_full_name;
     }
 
     return $children_array;

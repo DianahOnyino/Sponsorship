@@ -23,4 +23,8 @@ class Child extends Model
         ],
     ];
 
+    public function person()
+    {
+        return $this->belongsTo(Person::class, 'person_id');
+    }
 }

@@ -9,9 +9,11 @@
 namespace App\Http\Controllers;
 
 
+use App\API\ChildSponsorDetailsTransformer;
 use App\API\ChildTransformer;
 use App\API\SponsorTransformer;
 use App\Child;
+use App\ChildSponsorDetail;
 use App\Sponsor;
 use League\Fractal\Resource\Collection;
 
@@ -35,15 +37,13 @@ class ApiController extends ApiControlController
         return $this->makeSortableFilterablePaginated($filtered, new  SponsorTransformer());
     }
 
-    public function makeSortableFilterablePaginated($filtered, $transformer)
+    public function getChildSponsorsData()
     {
-        $paginated = $this->sortAndPaginate($filtered);
+        $child_sponsor_details =  new ChildSponsorDetail();
 
-        $resource = new Collection($paginated['model'], $transformer);
+        $filtered = $this->filter($child_sponsor_details);
 
-        $this->addPaginationToResource($paginated, $resource);
-
-        return $this->fractal->createData($resource)->toJson();
+        return $this->makeSortableFilterablePaginated($filtered, new  ChildSponsorDetailsTransformer());
     }
 
     public function getUpdatedChildrenData()
@@ -54,5 +54,16 @@ class ApiController extends ApiControlController
     public function getUpdatedSponsorData()
     {
         return $this->getSponsorsData();
+    }
+
+    public function makeSortableFilterablePaginated($filtered, $transformer)
+    {
+        $paginated = $this->sortAndPaginate($filtered);
+
+        $resource = new Collection($paginated['model'], $transformer);
+
+        $this->addPaginationToResource($paginated, $resource);
+
+        return $this->fractal->createData($resource)->toJson();
     }
 }

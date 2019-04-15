@@ -38,7 +38,7 @@ class SponsorAssignmentController extends Model
 
         $this->assignASponsorAChild($child_id, $sponsor_id);
 
-        return redirect()->back()->with('success', 'Successfully assigned a sponsor a child');
+        return redirect()->back()->with('success', 'Successfully assigned a child a sponsor');
     }
 
     public function assignASponsorAChild($child_id, $sponsor_id)

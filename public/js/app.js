@@ -52886,6 +52886,15 @@ app.factory('SponsorRecords', ['$http', 'FilteredTableState', function ($http, F
 
   return sponsorRecords;
 }]);
+app.factory('ChildSponsorRecords', ['$http', 'FilteredTableState', function ($http, FilteredTableState) {
+  var childSponsorRecords = {};
+
+  childSponsorRecords.getPage = function (tableState, filterData) {
+    return FilteredTableState.getPage(tableState, filterData, '/api/get-child-sponsor-data');
+  };
+
+  return childSponsorRecords;
+}]);
 app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 'ChildRecords', function ($http, $scope, $window, Notification, ChildRecords) {
   $scope.children_records = [];
   $scope.itemsByPage = 10;
@@ -53203,6 +53212,31 @@ app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification
       $http.get('/api/get-updated-sponsor-data').then(function (result) {
         $scope.deleteModalScope.sponsor_records = result.data.data;
       });
+    });
+  };
+}]);
+app.controller('ChildSponsorController', ['$http', '$scope', '$window', 'Notification', 'ChildSponsorRecords', function ($http, $scope, $window, Notification, ChildSponsorRecords) {
+  $scope.children_sponsors_records = [];
+  $scope.itemsByPage = 10;
+
+  $scope.callServer = function callServer(tableState) {
+    $scope.tableState = tableState;
+    $scope.isLoading = false;
+    var pagination = tableState.pagination;
+    var start = pagination.start || 0;
+    var number = pagination.number || 10;
+    $scope.filterData = {};
+    $scope.getChildSponsorRecords(tableState, $scope.filterData);
+  };
+
+  $scope.getChildSponsorRecords = function (status, filterData) {
+    ChildSponsorRecords.getPage($scope.tableState, filterData).then(function (result) {
+      tableState = $scope.tableState;
+      $scope.children_sponsors_records = result.data.data;
+      $scope.meta = result.data.meta;
+      tableState.pagination.numberOfPages = result.data.meta.pagination.total_pages;
+      $scope.perPage = tableState.pagination.number;
+      $scope.isLoading = false;
     });
   };
 }]);

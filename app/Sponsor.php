@@ -22,4 +22,9 @@ class Sponsor extends Model
             'person' => ['sponsors.person_id', 'person.id'],
         ],
     ];
+
+    public function person()
+    {
+        return $this->belongsTo(Person::class, 'person_id');
+    }
 }
