@@ -28,3 +28,15 @@ Route::get('/child/edit', 'ChildController@edit')->name('child-edit');
 Route::post('/child/update', 'ChildController@update')->name('child-update');
 
 Route::get('/child/delete/{id}', 'ChildController@destroy')->name('child-delete');
+
+//Sponsor
+
+Route::get('/sponsors-view', 'SponsorController@index')->name('sponsors-view');
+
+Route::post('/sponsor/create', 'SponsorController@save')->name('sponsor-create');
+
+Route::get('/sponsor/edit', 'SponsorController@edit')->name('sponsor-edit');
+
+Route::post('/sponsor/update', 'SponsorController@update')->name('sponsor-update');
+
+Route::get('/sponsor/delete/{id}', 'SponsorController@destroy')->name('sponsor-delete');

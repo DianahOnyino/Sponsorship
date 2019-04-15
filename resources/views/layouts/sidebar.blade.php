@@ -7,7 +7,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/sponsors-view">
                     <i class="fa fa-user" aria-hidden="true"></i> &nbsp; Sponsors
                 </a>
             </li>

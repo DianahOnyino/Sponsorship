@@ -9,8 +9,17 @@
 
     <title>{{ config('app.name', 'Sponsorship') }}</title>
 
+    {{--JQuery--}}
+    <script src="/js/jquery.min.js"></script>
+
     {{--Zurb Foundation--}}
     <link rel="stylesheet" href="/css/foundation.min.css">
+
+    {{--Angular UI Notification--}}
+    <script src="/css/angular-ui-notification.min.css"></script>
+
+    {{--Bootstrap--}}
+    <script src="/bootstrap/bootstrap.min.css"></script>
 
     {{--Font Awseome--}}
     <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -18,15 +27,10 @@
     {{--Angular--}}
     <script src="/angular/angular.min.js"></script>
 
-    {{--JQuery--}}
-    <script src="/js/jquery.min.js"></script>
-
     {{--Smart Table--}}
     <script src="/js/smart-table.min.js"></script>
 
     {{--Angular UI Notification--}}
-    <script src="/css/angular-ui-notification.min.css"></script>
-
     <script src="/js/angular-ui-notification.min.js"></script>
 
     {{--Angular resource--}}
@@ -34,9 +38,6 @@
 
     {{--Angular Route--}}
     <script src="/js/angular-route.min.js"></script>
-
-    {{--Bootstrap--}}
-    <script src="/bootstrap/bootstrap.min.css"></script>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

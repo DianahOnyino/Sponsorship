@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid" ng-controller="SponsorController">
         <div class="grid-x justify-content-center">
             <div class="cell large-12 medium-12 small-12">
                 <div class="card">
                     <div class="card-header">
-                        Children Records
+                        Sponsors Records
 
-                        <a class="pull-right" href="#" data-open="createChildRecordModal">
+                        <a class="pull-right" href="#" data-open="createSponsorRecordModal">
                             Add
                             <i class="fa fa-plus-circle" aria-hidden="true"></i>
                         </a>
 
-                        <div class="small reveal" id="createChildRecordModal" data-reveal>
-                            @include('children.create')
+                        <div class="small reveal" id="createSponsorRecordModal" data-reveal>
+                            @include('sponsors.create')
 
                             <button class="close-button" data-close aria-label="Close modal" type="button">
                                 <span aria-hidden="true">&times;</span>
@@ -22,10 +22,16 @@
                         </div>
                     </div>
 
-                    {{--Records: <%children_records%>--}}
-
                     <div class="card-body">
-                        <table st-pipe="callServer" st-table="children_records" class="table responsive table-scroll">
+                        <table st-pipe="callServer" st-table="sponsor_records" class="table responsive table-scroll">
+                            <thead class="no_head_style">
+                            <tr>
+                                <th colspan="4">
+                                    <input st-search class="form-control" placeholder="Search ..." type="text"/>
+                                </th>
+                            </tr>
+                            </thead>
+
                             <thead>
                             <tr>
                                 <td></td>
@@ -35,32 +41,27 @@
                                 <td>Age</td>
                                 <td>Country</td>
                                 <td>City</td>
-                                <td>Village</td>
-                                <td>Highest Level of Education</td>
-                                <td>Class Level</td>
-                                <td>School Name</td>
+                                <td>Occupation</td>
+                                <td>Motivation</td>
                             </tr>
                             </thead>
                             <tbody ng-show="!isLoading">
-                            <tr ng-if="children_records.length != 0" ng-repeat="child in children_records" ng-cloak>
+                            <tr ng-if="sponsor_records.length != 0" ng-repeat="sponsor in sponsor_records" ng-cloak>
                                 <td><% $index+1 %></td>
-                                <td><% child.first_name %></td>
-                                <td><% child.middle_name %></td>
-                                <td><% child.last_name %></td>
-                                <td><% child.age %></td>
-                                <td><% child.country %></td>
-                                <td><% child.city %></td>
-                                <td><% child.village %></td>
-                                <td><% child.highest_level_of_education %></td>
-                                <td><% child.level %></td>
-                                <td><% child.class_level %></td>
-                                <td><% child.school_name %></td>
+                                <td><% sponsor.first_name %></td>
+                                <td><% sponsor.middle_name %></td>
+                                <td><% sponsor.last_name %></td>
+                                <td><% sponsor.age %></td>
+                                <td><% sponsor.country %></td>
+                                <td><% sponsor.city %></td>
+                                <td><% sponsor.occupation %></td>
+                                <td><% sponsor.motivation %></td>
                             </tr>
-                            <tr ng-if="children_records.length == 0" ng-cloak>
+                            <tr ng-if="sponsor_records.length == 0" ng-cloak>
                                 <td colspan="12">There are no records yet.</td>
                             </tr>
                             <tr>
-                                <td class="notification-footer" colspan="5">
+                                <td class="notification-footer" colspan="6">
                                     <div class="pull-left" st-pagination="" st-items-by-page="itemsByPage"></div>
                                 </td>
                                 <td colspan="3"></td>

@@ -10,7 +10,9 @@ namespace App\Http\Controllers;
 
 
 use App\API\ChildTransformer;
+use App\API\SponsorTransformer;
 use App\Child;
+use App\Sponsor;
 use League\Fractal\Resource\Collection;
 
 class ApiController extends ApiControlController
@@ -22,6 +24,15 @@ class ApiController extends ApiControlController
         $filtered = $this->filter($children);
 
         return $this->makeSortableFilterablePaginated($filtered, new  ChildTransformer());
+    }
+
+    public function getSponsorsData()
+    {
+        $sponsors =  new Sponsor();
+
+        $filtered = $this->filter($sponsors);
+
+        return $this->makeSortableFilterablePaginated($filtered, new  SponsorTransformer());
     }
 
     public function makeSortableFilterablePaginated($filtered, $transformer)
