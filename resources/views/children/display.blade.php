@@ -71,11 +71,9 @@
                                         </span>
                                     </a>&nbsp;
 
-                                    {{--<a href="/child/delete/{id}" ><span class="fa fa-trash"></span></a>--}}
                                     <a data-open="deleteChildDetailsModal"
                                        ng-click="deleteResource(children_records[$index].person_id)">
                                         <span class="fa fa-trash"></span>
-                                        {{--<i class="fa fa-trash" aria-hidden="true"></i> --}}
                                     </a>
 
                                 </td>

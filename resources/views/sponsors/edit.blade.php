@@ -1,120 +1,150 @@
-<div class="card modal-space-top" ng-controller="MainController">
-    <div class="card-header">Edit Child Record</div>
+<div class="card modal-space-top" ng-controller="SponsorController">
+    <div class="card-header">Edit Sponsor Record</div>
     <div class="card-body no-padding">
         <form>
             @csrf
             <div>
                 <p class="form-label-header">Personal Details: </p>
-                @include('partials._base_form_edit')
+                {{--                @include('partials._base_form_create')--}}
+                <div class="grid-x">
+                    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+                        <label class="centralized-label" for="first_name">First name:</label><br>
+                    </div>
+
+                    <div class="cell large-6 medium-6 small-12">
+                        <input type="text" name="first_name"
+                               ng-model="edit_record.first_name"
+                               id="first_name"
+                               required>
+                        <span class="help-text error"
+                              ng-show="errors.first_name"
+                              ng-bind="errors.first_name">
+        </span>
+                    </div>
+                </div>
 
                 <div class="grid-x">
                     <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
-                        <label class="centralized-label" for="village">Village:</label><br>
+                        <label class="centralized-label" for="middle_name">Middle name:</label><br>
                     </div>
                     <div class="cell large-6 medium-6 small-12">
-                        <input type="text" id="village" name="village" ng-model="child_record.village" required>
+                        <input type="text" name="middle_name" ng-model="edit_record.middle_name" id="middle_name">
                         <span class="help-text error"
-                              ng-show="errors.village"
-                              ng-bind="errors.village">
-                        </span>
+                              ng-show="errors.middle_name"
+                              ng-bind="errors.middle_name">
+        </span>
                     </div>
                 </div>
-            </div>
-            <div>
-                <p class="form-label-header">Education Details</p>
 
                 <div class="grid-x">
                     <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
-                        <label class="centralized-label"
-                               for="highest_level_of_education">Schooled/Schooling:</label><br>
+                        <label class="centralized-label" for="last_name">Last name:</label><br>
                     </div>
-                    <div class="cell large-6 medium-6 small-12 applicable-radios">
-                        Applicable:
-                        <input type="radio" name="highest_level_of_education"
-                               ng-model="child_record.highest_level_of_education"
-                               value="applicable"
-                               id="applicable"
-                               ng-checked="true"/> &nbsp;&nbsp;
+                    <div class="cell large-6 medium-6 small-12">
+                        <input type="text" name="last_name" ng-model="edit_record.last_name" id="last_name" required>
                         <span class="help-text error"
-                              ng-show="errors.highest_level_of_education"
-                              ng-bind="errors.highest_level_of_education">
-                        </span>
-
-                        Not Applicable:
-                        <input type="radio" name="highest_level_of_education"
-                               ng-model="child_record.highest_level_of_education"
-                               id="not_applicable"
-                               value="not_applicable"/>
-                        <span class="help-text error"
-                              ng-show="errors.highest_level_of_education"
-                              ng-bind="errors.highest_level_of_education">
-                        </span>
+                              ng-show="errors.last_name"
+                              ng-bind="errors.last_name">
+        </span>
                     </div>
-
                 </div>
 
-                <div ng-show="child_record.highest_level_of_education == 'applicable'" ng-cloak>
-                    <div class="grid-x">
-                        <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
-                            <label class="centralized-label" for="level">Level:</label><br>
-                        </div>
-                        <div class="cell large-6 medium-6 small-12">
-                            <input type="text"
-                                   name="level"
-                                   id="level"
-                                   class="require-if-active"
-                                   ng-model="child_record.level"
-                                   data-require-pair="#applicable"
-                                   required>
-                            <span class="help-text error"
-                                  ng-show="errors.level"
-                                  ng-bind="errors.level">
-                        </span>
-                        </div>
+                <div class="grid-x">
+                    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+                        <label class="centralized-label" for="date_of_birth">Date of Birth:</label><br>
                     </div>
-
-                    <div class="grid-x">
-                        <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
-                            <label class="centralized-label" for="class_level">Class Level:</label><br>
-                        </div>
-                        <div class="cell large-6 medium-6 small-12">
-                            <input type="text"
-                                   name="class_level"
-                                   id="class_level"
-                                   class="require-if-active"
-                                   ng-model="child_record.class_level"
-                                   required
-                                   data-require-pair="#applicable">
-                            <span class="help-text error"
-                                  ng-show="errors.class_level"
-                                  ng-bind="errors.class_level">
-                        </span>
-                        </div>
+                    <div class="cell large-6 medium-6 small-12">
+                        <input type="text" name="date_of_birth" ng-model="edit_record.date_of_birth" id="date_of_birth"
+                               required>
+                        <span class="help-text error"
+                              ng-show="errors.date_of_birth"
+                              ng-bind="errors.date_of_birth">
+        </span>
                     </div>
+                </div>
 
-                    <div class="grid-x">
-                        <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
-                            <label class="centralized-label" for="school_name">School Name:</label><br>
-                        </div>
-                        <div class="cell large-6 medium-6 small-12">
-                            <input type="text"
-                                   name="school_name"
-                                   id="school_name"
-                                   class="require-if-active"
-                                   ng-model="child_record.school_name"
-                                   required
-                                   data-require-pair="#applicable">
-                            <span class="help-text error"
-                                  ng-show="errors.school_name"
-                                  ng-bind="errors.school_name">
+                <div class="grid-x">
+                    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+                        <label class="centralized-label" for="age">Age:</label><br>
+                    </div>
+                    <div class="cell large-6 medium-6 small-12">
+                        <input type="text" name="age" ng-model="edit_record.age" id="age" required>
+                        <span class="help-text error"
+                              ng-show="errors.age"
+                              ng-bind="errors.age">
+        </span>
+                    </div>
+                </div>
+
+                <div class="grid-x">
+                    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+                        <label class="centralized-label" for="gender">Gender:</label><br>
+                    </div>
+                    <div class="cell large-6 medium-6 small-12">
+                        <input type="text" name="gender" ng-model="edit_record.gender" id="gender" required>
+                        <span class="help-text error"
+                              ng-show="errors.gender"
+                              ng-bind="errors.gender">
+        </span>
+                    </div>
+                </div>
+
+                <div class="grid-x">
+                    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+                        <label class="centralized-label" for="country">Country:</label><br>
+                    </div>
+                    <div class="cell large-6 medium-6 small-12">
+                        <input type="text" name="country" ng-model="edit_record.country" id="country" required>
+                        <span class="help-text error"
+                              ng-show="errors.country"
+                              ng-bind="errors.country">
+        </span>
+                    </div>
+                </div>
+
+                <div class="grid-x">
+                    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+                        <label class="centralized-label" for="city">City:</label><br>
+                    </div>
+                    <div class="cell large-6 medium-6 small-12">
+                        <input type="text" name="city" ng-model="edit_record.city" id="city" required>
+                        <span class="help-text error"
+                              ng-show="errors.city"
+                              ng-bind="errors.city">
+        </span>
+                    </div>
+                </div>
+
+
+                <div class="grid-x">
+                    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+                        <label class="centralized-label" for="motivation">Motivation for Sponsoring:</label><br>
+                    </div>
+                    <div class="cell large-6 medium-6 small-12">
+                        <input type="text" id="motivation" name="motivation" ng-model="edit_record.motivation" required>
+                        <span class="help-text error"
+                              ng-show="errors.motivation"
+                              ng-bind="errors.motivation">
                         </span>
-                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-x">
+                    <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
+                        <label class="centralized-label" for="occupation">Occupation:</label><br>
+                    </div>
+                    <div class="cell large-6 medium-6 small-12">
+                        <input type="text" id="occupation" name="occupation" ng-model="edit_record.occupation" required>
+                        <span class="help-text error"
+                              ng-show="errors.occupation"
+                              ng-bind="errors.occupation">
+                        </span>
                     </div>
                 </div>
             </div>
 
             <div class="form-submit-section">
-                <a href="" class="link-to-button padded-botton" ng-click="updateChildEducationDetails(child_record)">Edit</a>
+                <a href="" class="link-to-button padded-botton" ng-click="sponsorDetailsRecord(edit_record)">Edit</a>
             </div>
         </form>
 

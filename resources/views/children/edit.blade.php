@@ -12,7 +12,7 @@
                         <label class="centralized-label" for="village">Village:</label><br>
                     </div>
                     <div class="cell large-6 medium-6 small-12">
-                        <input type="text" id="village" name="village" ng-model="child_record.village" required>
+                        <input type="text" id="village" name="village" ng-model="edit_record.village" required>
                         <span class="help-text error"
                               ng-show="errors.village"
                               ng-bind="errors.village">
@@ -31,7 +31,7 @@
                     <div class="cell large-6 medium-6 small-12 applicable-radios">
                         Applicable:
                         <input type="radio" name="highest_level_of_education"
-                               ng-model="child_record.highest_level_of_education"
+                               ng-model="edit_record.highest_level_of_education"
                                value="applicable"
                                id="applicable"
                                ng-checked="true"/> &nbsp;&nbsp;
@@ -42,7 +42,7 @@
 
                         Not Applicable:
                         <input type="radio" name="highest_level_of_education"
-                               ng-model="child_record.highest_level_of_education"
+                               ng-model="edit_record.highest_level_of_education"
                                id="not_applicable"
                                value="not_applicable"/>
                         <span class="help-text error"
@@ -53,7 +53,7 @@
 
                 </div>
 
-                <div ng-show="child_record.highest_level_of_education == 'applicable'" ng-cloak>
+                <div ng-show="edit_record.highest_level_of_education == 'applicable'" ng-cloak>
                     <div class="grid-x">
                         <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
                             <label class="centralized-label" for="level">Level:</label><br>
@@ -63,7 +63,7 @@
                                    name="level"
                                    id="level"
                                    class="require-if-active"
-                                   ng-model="child_record.level"
+                                   ng-model="edit_record.level"
                                    data-require-pair="#applicable"
                                    required>
                             <span class="help-text error"
@@ -82,7 +82,7 @@
                                    name="class_level"
                                    id="class_level"
                                    class="require-if-active"
-                                   ng-model="child_record.class_level"
+                                   ng-model="edit_record.class_level"
                                    required
                                    data-require-pair="#applicable">
                             <span class="help-text error"
@@ -101,7 +101,7 @@
                                    name="school_name"
                                    id="school_name"
                                    class="require-if-active"
-                                   ng-model="child_record.school_name"
+                                   ng-model="edit_record.school_name"
                                    required
                                    data-require-pair="#applicable">
                             <span class="help-text error"
@@ -114,7 +114,7 @@
             </div>
 
             <div class="form-submit-section">
-                <a href="" class="link-to-button padded-botton" ng-click="updateChildEducationDetails(child_record)">Edit</a>
+                <a href="" class="link-to-button padded-botton" ng-click="updateChildEducationDetails(edit_record)">Edit</a>
             </div>
         </form>
 

@@ -50,4 +50,9 @@ class ApiController extends ApiControlController
     {
         return $this->getChildrenData();
     }
+
+    public function getUpdatedSponsorData()
+    {
+        return $this->getSponsorsData();
+    }
 }

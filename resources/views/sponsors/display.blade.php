@@ -43,6 +43,7 @@
                                 <td>City</td>
                                 <td>Occupation</td>
                                 <td>Motivation</td>
+                                <td>Action</td>
                             </tr>
                             </thead>
                             <tbody ng-show="!isLoading">
@@ -56,6 +57,20 @@
                                 <td><% sponsor.city %></td>
                                 <td><% sponsor.occupation %></td>
                                 <td><% sponsor.motivation %></td>
+                                <td>
+                                    <a href="#">
+                                        <span class="fa fa-edit"
+                                              data-open="editSponsorRecordModal"
+                                              ng-click="setIndex($index); getSponsorRecord(sponsor)">
+                                        </span>
+                                    </a>&nbsp;
+
+                                    <a data-open="deleteSponsorDetailsModal"
+                                       ng-click="deleteResource(sponsor_records[$index].person_id)">
+                                        <span class="fa fa-trash"></span>
+                                    </a>
+
+                                </td>
                             </tr>
                             <tr ng-if="sponsor_records.length == 0" ng-cloak>
                                 <td colspan="12">There are no records yet.</td>
@@ -73,6 +88,31 @@
                             </tr>
                             </tbody>
                         </table>
+
+                        <div class="small reveal" id="editSponsorRecordModal" data-reveal>
+                            @include('sponsors.edit')
+
+                            <button class="close-button" data-close aria-label="Close modal" type="button">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div id="deleteSponsorDetailsModal" class="reveal" data-reveal ng-controller="SponsorController">
+                            <h4 class="profile-item-title">
+                                Are you sure you want to delete this record? This will
+                                lead to deletion of other subsequent records attached to this record.
+                            </h4>
+
+                            <div class="row form-submit-section">
+                                <a ng-click="deleteSponsorRecord('/sponsor/delete/' + delete_record_id)"
+                                   style="margin-bottom: -5px;"
+                                   class="button alert" aria-label="Close modal" data-close>
+                                    Delete
+                                </a>
+                                &nbsp;&nbsp;
+                                <a href="" class="button save-button" style="margin-bottom: -5px;" data-close>Cancel</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

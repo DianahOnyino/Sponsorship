@@ -24,7 +24,6 @@ class SponsorRequest
             'gender.required' => 'Gender is required',
             'country.required' => 'Country is required',
             'city.required' => 'City is required',
-//            'next_of_kin_id.required' => 'Next of kin is required',
             'occupation.required' => 'Occupation is required',
             'motivation.required' => 'The drive/motivation behind sponsoring is required',
         ];
@@ -38,7 +37,6 @@ class SponsorRequest
             'gender' => 'required',
             'country' => 'required',
             'city' => 'required',
-//            'next_of_kin_id' => 'required',
             'occupation' => 'required',
             'motivation' => 'required',
         ];

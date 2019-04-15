@@ -88,7 +88,7 @@ class SponsorController extends Controller
 
             $sponsorRepository->saveSponsorDetails($person_details_id, $input, $person_details_id);
         } catch (\Exception $exception){
-
+            dd($exception->getMessage());
         }
 
         return "Information successfully saved!";

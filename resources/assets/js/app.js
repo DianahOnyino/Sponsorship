@@ -162,6 +162,8 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
                 if (response.data.hasOwnProperty('duplicate_error') === false && response.data.hasOwnProperty('errors') === false) {
                     Notification.success(response.data);
 
+                    $scope.errors = "";
+
                     //Reset child details input fields and close modal
                     $("#first_name").val("");
                     $("#middle_name").val("");
@@ -200,7 +202,7 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
 
         $scope.editChildRecordModalScope = angular.element(document.querySelector('#editChildRecordModal')).scope();
 
-        $scope.editChildRecordModalScope.child_record = child_record;
+        $scope.editChildRecordModalScope.edit_record = child_record;
     };
 
 
@@ -342,6 +344,8 @@ app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification
                 if (response.data.hasOwnProperty('duplicate_error') === false && response.data.hasOwnProperty('errors') === false) {
                     Notification.success(response.data);
 
+                    $scope.errors = "";
+
                     //Reset child details input fields and close modal
                     $("#first_name").val("");
                     $("#middle_name").val("");
@@ -351,7 +355,6 @@ app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification
                     $("#gender").val("");
                     $("#country").val("");
                     $("#city").val("");
-                    $("#next_of_kin_id").val("");
                     $("#occupation").val("");
                     $("#motivation").val("");
 
@@ -360,6 +363,79 @@ app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification
                     // $window.location.reload();
                 }
             })
+    };
+
+    $scope.getSponsorRecord = function (sponsor_record) {
+        $scope.editSponsorRecordModalScope = angular.element(document.querySelector('#editSponsorRecordModal')).scope();
+
+        $scope.editSponsorRecordModalScope.edit_record = sponsor_record;
+    };
+
+    $scope.sponsorDetailsRecord = function (edited_data) {
+        var update_sponsor_data = {
+            first_name: edited_data.first_name,
+            middle_name: edited_data.middle_name,
+            last_name: edited_data.last_name,
+            date_of_birth: edited_data.date_of_birth,
+            age: edited_data.age,
+            gender: edited_data.gender,
+            country: edited_data.country,
+            city: edited_data.city,
+            next_of_kin_id: edited_data.next_of_kin_id,
+            occupation: edited_data.occupation,
+            motivation: edited_data.motivation,
+            person_id: edited_data.person_id,
+        };
+
+        $scope.errors = '';
+
+        $http({
+            method: 'POST',
+            url: '/sponsor/update',
+            data: update_sponsor_data,
+            dataType: 'json'
+        })
+            .then(function (response) {
+                Notification.success(response.data);
+
+                //Reset child details input fields and close modal
+                $("#first_name").val("");
+                $("#middle_name").val("");
+                $("#last_name").val("");
+                $("#date_of_birth").val("");
+                $("#age").val("");
+                $("#gender").val("");
+                $("#country").val("");
+                $("#city").val("");
+                $("#occupation").val("");
+                $("#motivation").val("");
+
+                // $('#editSponsorRecordModal').foundation('close');
+
+                $http.get('/api/get-updated-sponsor-data').then(function (result) {
+                    $scope.sponsor_records = result.data.data
+                });
+            });
+    };
+
+    $scope.deleteResource = function (recordId) {
+        $scope.deleteModalScope = angular.element(document.querySelector('#deleteSponsorDetailsModal')).scope();
+
+        $scope.deleteModalScope.delete_record_id = recordId;
+    };
+
+    $scope.deleteSponsorRecord = function (url) {
+        Notification.primary('deleting');
+
+        $http.get(url).then(function () {
+            Notification.success('Item deleted');
+
+            $scope.deleteModalScope = angular.element(document.querySelector('#deleteSponsorDetailsModal')).scope();
+
+            $http.get('/api/get-updated-sponsor-data').then(function (result) {
+                $scope.deleteModalScope.sponsor_records = result.data.data
+            });
+        });
     };
 
 }]);

@@ -21,4 +21,6 @@ Route::get('/get-children-data', 'ApiController@getChildrenData');
 
 Route::get('/get-updated-children-data', 'ApiController@getUpdatedChildrenData');
 
+Route::get('/get-updated-sponsor-data', 'ApiController@getUpdatedSponsorData');
+
 Route::get('/get-sponsors-data', 'ApiController@getSponsorsData');
