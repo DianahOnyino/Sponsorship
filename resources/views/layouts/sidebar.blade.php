@@ -12,7 +12,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/child-sponsors-assignment/view">
                     <i class="fa fa-exchange" aria-hidden="true"></i> &nbsp; Sponsorship Assignment
                 </a>
             </li>
