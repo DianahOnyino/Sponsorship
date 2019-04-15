@@ -244,11 +244,20 @@ app.controller('MainController', ['$http', '$scope', 'Notification', 'ChildRecor
                 $('#editChildRecordModal').foundation('close');
 
                 $window.location.reload();
-
-                // $http.get('/api/get-updated-children-data').then(function () {
-                //     $scope.children_records = result.data.data
-                // });
             });
+    };
 
-    }
+    $scope.deleteResource = function (recordId) {
+        $scope.deleteModalScope = angular.element(document.querySelector('#deleteChildDetailsModal')).scope();
+
+        $scope.deleteModalScope.delete_record_id = recordId;
+    };
+
+    $scope.deleteChildRecord = function (url) {
+        Notification.primary('deleting');
+
+        $http.get(url).then(function () {
+            Notification.success('Item deleted');
+        });
+    };
 }]);

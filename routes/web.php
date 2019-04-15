@@ -26,3 +26,5 @@ Route::post('/child/create', 'ChildController@save')->name('child-create');
 Route::get('/child/edit', 'ChildController@edit')->name('child-edit');
 
 Route::post('/child/update', 'ChildController@update')->name('child-update');
+
+Route::get('/child/delete/{id}', 'ChildController@destroy')->name('child-delete');

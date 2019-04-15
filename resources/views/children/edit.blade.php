@@ -11,7 +11,6 @@
                     <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
                         <label class="centralized-label" for="village">Village:</label><br>
                     </div>
-                    rrrrrrrr: <%child_record%>
                     <div class="cell large-6 medium-6 small-12">
                         <input type="text" id="village" name="village" ng-model="child_record.village" required>
                             <input type="text" id="person_id" name="person_id" data-ng-model="child_record.person_id">

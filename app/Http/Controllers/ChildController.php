@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Child;
+use App\ChildSponsorDetail;
 use App\Http\Requests\ChildRecordRequest;
 use App\Person;
 use App\Repositories\ChildRepository;
@@ -82,5 +84,18 @@ class ChildController extends Controller
         }
 
         return "Information successfully saved!";
+    }
+
+    public function destroy($person_id)
+    {
+        $person_details = Person::find($person_id);
+
+        $child = Child::where('person_id', $person_id);
+
+        ChildSponsorDetail::where('child_id', $child->first()->id)->delete();
+
+        $child->delete();
+
+        $person_details->delete();
     }
 }

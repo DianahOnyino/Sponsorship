@@ -71,7 +71,13 @@
                                         </span>
                                     </a>&nbsp;
 
-                                    <a href="" ><span class="fa fa-trash"></span></a>
+                                    {{--<a href="/child/delete/{id}" ><span class="fa fa-trash"></span></a>--}}
+                                    <a data-open="deleteChildDetailsModal"
+                                       ng-click="deleteResource(children_records[$index].person_id)">
+                                        <span class="fa fa-trash"></span>
+                                        {{--<i class="fa fa-trash" aria-hidden="true"></i> --}}
+                                    </a>
+
                                 </td>
                             </tr>
                             <tr ng-if="children_records.length == 0" ng-cloak>
@@ -98,6 +104,21 @@
                             <button class="close-button" data-close aria-label="Close modal" type="button">
                                 <span aria-hidden="true">&times;</span>
                             </button>
+                        </div>
+
+                        <div id="deleteChildDetailsModal" class="reveal" data-reveal ng-controller="MainController">
+                            <h4 class="profile-item-title">Are you sure you want to delete this record? This will
+                                lead to deletion of other subsequent records attached to this record.</h4>
+
+                            <div class="row">
+                                <a ng-click="deleteChildRecord('/child/delete/' + delete_record_id)"
+                                   style="margin-bottom: -5px;"
+                                   class="button alert" aria-label="Close modal" data-close>
+                                    Delete
+                                </a>
+                                &nbsp;&nbsp;
+                                <a href="" class="button save-button" style="margin-bottom: -5px;" data-close>Cancel</a>
+                            </div>
                         </div>
                     </div>
                 </div>
