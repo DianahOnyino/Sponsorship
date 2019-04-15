@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Child;
 use App\Http\Requests\ChildRecordRequest;
 use App\Person;
 use App\Repositories\ChildRepository;
@@ -48,6 +47,36 @@ class ChildController extends Controller
             $person_details_id = $childRepository->savePersonDetails($input);
 
             $childRepository->saveChildDetails($person_details_id, $input);
+        } catch (\Exception $exception){
+
+        }
+
+        return "Information successfully saved!";
+    }
+
+    public function edit()
+    {
+        return view('children.edit');
+    }
+
+    public function update()
+    {
+        $input = Input::all();
+
+        $child_record_request = new ChildRecordRequest();
+
+        $validator = $child_record_request->validate($input);
+
+        if ($validator->fails()) {
+            return Response::json(['errors' => $validator->errors()]);
+        }
+
+        $childRepository = new ChildRepository();
+
+        try {
+            $person_details_id = $childRepository->savePersonDetails($input, $input['person_id']);
+
+            $childRepository->saveChildDetails($person_details_id, $input, $person_details_id);
         } catch (\Exception $exception){
 
         }

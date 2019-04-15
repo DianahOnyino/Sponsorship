@@ -52979,6 +52979,68 @@ app.controller('MainController', ['$http', '$scope', 'Notification', 'ChildRecor
       }
     });
   };
+
+  $scope.setIndex = function ($index) {
+    $scope.index = $index;
+  };
+
+  $scope.getChildRecord = function (child_record) {
+    if (child_record.highest_level_of_education === 1) {
+      child_record.highest_level_of_education = 'applicable';
+    } else {
+      child_record.highest_level_of_education = 'not_applicable';
+    }
+
+    $scope.editChildRecordModalScope = angular.element(document.querySelector('#editChildRecordModal')).scope();
+    $scope.editChildRecordModalScope.child_record = child_record;
+  };
+
+  $scope.updateChildEducationDetails = function (edited_data) {
+    var update_child_education_data = {
+      first_name: edited_data.first_name,
+      middle_name: edited_data.middle_name,
+      last_name: edited_data.last_name,
+      date_of_birth: edited_data.date_of_birth,
+      age: edited_data.age,
+      gender: edited_data.gender,
+      country: edited_data.country,
+      city: edited_data.city,
+      relationship_type: edited_data.relationship_type,
+      highest_level_of_education: edited_data.highest_level_of_education,
+      village: edited_data.village,
+      class_level: edited_data.class_level,
+      level: edited_data.level,
+      school_name: edited_data.school_name,
+      person_id: edited_data.person_id
+    };
+    $scope.errors = '';
+    $http({
+      method: 'POST',
+      url: '/child/update',
+      data: update_child_education_data,
+      dataType: 'json'
+    }).then(function (response) {
+      Notification.success(response.data); //Reset child details input fields and close modal
+
+      $("#first_name").val("");
+      $("#middle_name").val("");
+      $("#last_name").val("");
+      $("#date_of_birth").val("");
+      $("#age").val("");
+      $("#gender").val("");
+      $("#country").val("");
+      $("#city").val("");
+      $("#relationship_type").val("");
+      $("#village").val("");
+      $("#class_level").val("");
+      $("#level").val("");
+      $("#school_name").val("");
+      $('#editChildRecordModal').foundation('close');
+      $window.location.reload(); // $http.get('/api/get-updated-children-data').then(function () {
+      //     $scope.children_records = result.data.data
+      // });
+    });
+  };
 }]);
 
 /***/ }),

@@ -46,10 +46,11 @@
                                 <td>Level</td>
                                 <td>Class Level</td>
                                 <td>School Name</td>
+                                <td>Action</td>
                             </tr>
                             </thead>
                             <tbody ng-show="!isLoading">
-                            <tr ng-if="children_records.length != 0" ng-repeat="child in children_records" ng-cloak>
+                            <tr ng-if="children_records.length != 0" ng-repeat="child in children_records track by $index" ng-cloak>
                                 <td><% $index+1 %></td>
                                 <td><% child.first_name %></td>
                                 <td><% child.middle_name %></td>
@@ -62,6 +63,16 @@
                                 <td><% child.level %></td>
                                 <td><% child.class_level %></td>
                                 <td><% child.school_name %></td>
+                                <td>
+                                    <a href="#">
+                                        <span class="fa fa-edit"
+                                              data-open="editChildRecordModal"
+                                              ng-click="setIndex($index); getChildRecord(child)">
+                                        </span>
+                                    </a>&nbsp;
+
+                                    <a href="" ><span class="fa fa-trash"></span></a>
+                                </td>
                             </tr>
                             <tr ng-if="children_records.length == 0" ng-cloak>
                                 <td colspan="12">There are no records yet.</td>
@@ -80,6 +91,14 @@
                             </tr>
                             </tbody>
                         </table>
+
+                        <div class="small reveal" id="editChildRecordModal" data-reveal>
+                            @include('children.edit')
+
+                            <button class="close-button" data-close aria-label="Close modal" type="button">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

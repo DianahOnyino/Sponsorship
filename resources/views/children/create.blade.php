@@ -6,7 +6,7 @@
             @csrf
             <div>
                 <p class="form-label-header">Personal Details: </p>
-                @include('partials._base_form')
+                @include('partials._base_form_create')
 
                 <div class="grid-x">
                     <div class="cell large-3 large-offset-1 medium-3 medium-offset-1 small-12">
