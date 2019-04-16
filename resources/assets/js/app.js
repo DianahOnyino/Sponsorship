@@ -81,14 +81,14 @@ app.factory('ChildSponsorRecords', ['$http', 'FilteredTableState', function ($ht
 
 app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 'ChildRecords', function ($http, $scope, $window, Notification, ChildRecords) {
     $scope.children_records = [];
-    $scope.itemsByPage = 10;
+    $scope.itemsByPage = 20;
 
     $scope.callServer = function callServer(tableState) {
         $scope.tableState = tableState;
         $scope.isLoading = false;
         var pagination = tableState.pagination;
         var start = pagination.start || 0;
-        var number = pagination.number || 10;
+        var number = pagination.number || 20;
         $scope.filterData = {};
 
         $scope.getChildrenRecords(tableState, $scope.filterData);
@@ -193,7 +193,7 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
                         $scope.children_records = result.data.data
                     });
 
-                    $window.location.reload();
+                    // $window.location.reload();
                 }
             })
     };
