@@ -189,10 +189,6 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
 
                     $('#createChildRecordModal').foundation('close');
 
-                    $http.get('/api/get-updated-children-data').then(function (result) {
-                        $scope.children_records = result.data.data
-                    });
-
                     $window.location.reload();
                 }
             })
@@ -261,10 +257,6 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
                 $("#level").val("");
                 $("#school_name").val("");
 
-                $http.get('/api/get-updated-children-data').then(function (result) {
-                    $scope.children_records = result.data.data
-                });
-
                 $window.location.reload();
             });
     };
@@ -283,13 +275,9 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
 
             $scope.deleteModalScope = angular.element(document.querySelector('#deleteChildDetailsModal')).scope();
 
-            $http.get('/api/get-updated-children-data').then(function (result) {
-                $scope.deleteModalScope.children_records = result.data.data
-
                 $window.location.reload();
             });
-        });
-    };
+        };
 }]);
 
 app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification', 'SponsorRecords', function ($http, $scope, $window, Notification, SponsorRecords) {
@@ -420,10 +408,6 @@ app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification
                 $("#motivation").val("");
 
                 $window.location.reload();
-
-                $http.get('/api/get-updated-sponsor-data').then(function (result) {
-                    $scope.sponsor_records = result.data.data
-                });
             });
     };
 
@@ -442,10 +426,6 @@ app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification
             $scope.deleteModalScope = angular.element(document.querySelector('#deleteSponsorDetailsModal')).scope();
 
             $window.location.reload();
-
-            $http.get('/api/get-updated-sponsor-data').then(function (result) {
-                $scope.deleteModalScope.sponsor_records = result.data.data
-            });
         });
     };
 
