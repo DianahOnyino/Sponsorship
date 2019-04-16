@@ -27,9 +27,6 @@
     {{--Angular--}}
     <script src="/angular/angular.min.js"></script>
 
-    {{--Smart Table--}}
-    <script src="/js/smart-table.min.js"></script>
-
     {{--Angular UI Notification--}}
     <script src="/js/angular-ui-notification.min.js"></script>
 
@@ -37,17 +34,20 @@
     <script src="/js/angular-resource.min.js"></script>
 
     {{--Angular Route--}}
-    <script src="/js/angular-route.min.js"></script>
+    <script src="/js/angular-route.js"></script>
+
+    {{--Smart Table--}}
+    <script src="/js/smart-table.min.js"></script>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+{{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
 <div id="app">
@@ -72,9 +72,12 @@
 
 {{--What Input--}}
 <script src="/js/what-input.min.js"></script>
-<script>
-    Foundation.addToJquery($);
-</script>
+
+{{--Bootstrap--}}
+<script src="/bootstrap/bootstrap.min.js"></script>
+{{--<script>--}}
+    {{--Foundation.addToJquery($);--}}
+{{--</script>--}}
 
 <script>
     $(document).foundation();

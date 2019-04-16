@@ -23,7 +23,8 @@
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10"
+        "vue-template-compiler": "^2.6.10",
+        "webpack": "^4.30.0"
     },
     "dependencies": {
         "@coreui/coreui": "^2.1.9",
@@ -36,7 +37,6 @@
         "foundation-sites": "^6.5.3",
         "perfect-scrollbar": "^1.4.0",
         "simple-line-icons": "^2.4.1",
-        "webpack": "^4.30.0",
         "what-input": "^5.2.1"
     }
 }

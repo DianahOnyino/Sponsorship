@@ -84,6 +84,14 @@ thead {
   border-radius: 0.25rem;
 }
 
+.form-check {
+  display: grid;
+}
+
+.form-check input {
+  margin-top: 6px;
+}
+
 //Media queries
 /* Small only */
 @media screen and (max-width: 39.9375em) {

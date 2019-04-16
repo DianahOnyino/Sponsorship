@@ -14604,6 +14604,14 @@ thead {
   border-radius: 0.25rem;
 }
 
+.form-check {
+  display: grid;
+}
+
+.form-check input {
+  margin-top: 6px;
+}
+
 /* Small only */
 
 /* Medium and up */

@@ -1,6 +1,4 @@
-var app = angular.module('app', [
-    'smart-table', 'ui-notification', 'ngResource', 'ngRoute'
-], [
+var app = angular.module('app', ['ui-notification', 'smart-table', 'ngResource', 'ngRoute'], [
     '$interpolateProvider', function ($interpolateProvider) {
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');
@@ -170,6 +168,7 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
                 }
 
                 if (response.data.hasOwnProperty('duplicate_error') === false && response.data.hasOwnProperty('errors') === false) {
+                    console.log(response.data, 'data after child record creation');
                     Notification.success(response.data);
 
                     $scope.errors = "";
@@ -189,13 +188,13 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
                     $("#level").val("");
                     $("#school_name").val("");
 
-                    // $('#createChildRecordModal').foundation('close');
+                    $('#createChildRecordModal').foundation('close');
 
                     $http.get('/api/get-updated-children-data').then(function (result) {
                         $scope.children_records = result.data.data
                     });
 
-                    $window.location.reload();
+                    // $window.location.reload();
                 }
             })
     };
