@@ -52976,7 +52976,6 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
       }
 
       if (response.data.hasOwnProperty('duplicate_error') === false && response.data.hasOwnProperty('errors') === false) {
-        console.log(response.data, 'data after child record creation');
         Notification.success(response.data);
         $scope.errors = ""; //Reset child details input fields and close modal
 
@@ -52996,7 +52995,8 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
         $('#createChildRecordModal').foundation('close');
         $http.get('/api/get-updated-children-data').then(function (result) {
           $scope.children_records = result.data.data;
-        }); // $window.location.reload();
+        });
+        $window.location.reload();
       }
     });
   };
@@ -53055,8 +53055,7 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
       $("#village").val("");
       $("#class_level").val("");
       $("#level").val("");
-      $("#school_name").val(""); // $('#editChildRecordModal').foundation('close');
-
+      $("#school_name").val("");
       $http.get('/api/get-updated-children-data').then(function (result) {
         $scope.children_records = result.data.data;
       });
@@ -53099,7 +53098,6 @@ app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification
     SponsorRecords.getPage($scope.tableState, filterData).then(function (result) {
       tableState = $scope.tableState;
       $scope.sponsor_records = result.data.data;
-      console.log($scope.sponsor_records);
       $scope.meta = result.data.meta;
       tableState.pagination.numberOfPages = result.data.meta.pagination.total_pages;
       $scope.perPage = tableState.pagination.number;
@@ -53194,8 +53192,7 @@ app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification
       $("#country").val("");
       $("#city").val("");
       $("#occupation").val("");
-      $("#motivation").val(""); // $('#editSponsorRecordModal').foundation('close');
-
+      $("#motivation").val("");
       $window.location.reload();
       $http.get('/api/get-updated-sponsor-data').then(function (result) {
         $scope.sponsor_records = result.data.data;

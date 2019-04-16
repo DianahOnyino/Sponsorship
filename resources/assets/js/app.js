@@ -168,7 +168,6 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
                 }
 
                 if (response.data.hasOwnProperty('duplicate_error') === false && response.data.hasOwnProperty('errors') === false) {
-                    console.log(response.data, 'data after child record creation');
                     Notification.success(response.data);
 
                     $scope.errors = "";
@@ -194,7 +193,7 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
                         $scope.children_records = result.data.data
                     });
 
-                    // $window.location.reload();
+                    $window.location.reload();
                 }
             })
     };
@@ -262,8 +261,6 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
                 $("#level").val("");
                 $("#school_name").val("");
 
-                // $('#editChildRecordModal').foundation('close');
-
                 $http.get('/api/get-updated-children-data').then(function (result) {
                     $scope.children_records = result.data.data
                 });
@@ -314,7 +311,6 @@ app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification
         SponsorRecords.getPage($scope.tableState, filterData).then(function (result) {
             tableState = $scope.tableState;
             $scope.sponsor_records = result.data.data;
-            console.log($scope.sponsor_records);
             $scope.meta = result.data.meta;
             tableState.pagination.numberOfPages = result.data.meta.pagination.total_pages;
             $scope.perPage = tableState.pagination.number;
@@ -422,8 +418,6 @@ app.controller('SponsorController', ['$http', '$scope', '$window', 'Notification
                 $("#city").val("");
                 $("#occupation").val("");
                 $("#motivation").val("");
-
-                // $('#editSponsorRecordModal').foundation('close');
 
                 $window.location.reload();
 
