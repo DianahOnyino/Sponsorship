@@ -193,7 +193,7 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
                         $scope.children_records = result.data.data
                     });
 
-                    // $window.location.reload();
+                    $window.location.reload();
                 }
             })
     };
