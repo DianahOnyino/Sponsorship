@@ -1,63 +1,50 @@
-version: '2'
-services:
+version: '2.0'
 
-  #PHP Service
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: php:7.1.30-fpm
+services: 
+  pp-sponsorship:
     container_name: pp-sponsorship
-    restart: unless-stopped
-    tty: true
+    build: 
+      context: .
+    networks: 
+      static:
+        ipv4_address: 172.19.0.13 
     environment:
       SERVICE_NAME: pp-sponsorship
       SERVICE_TAGS: dev
-    working_dir: /var/www
     volumes:
-      - ./:/var/www
-      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
-    networks:
-      - pp-sponsorship-network
-
-  #Nginx Service
-  webserver:
-    image: nginx:alpine
-    container_name: pp-sponsorship-webserver
-    restart: unless-stopped
-    tty: true
+      - ./:/var/www/html
     ports:
-      - "80:80"
+      - "81:80"
       - "443:443"
-    volumes:
-      - ./:/var/www
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-    networks:
-      - pp-sponsorship-network
 
-  #MySQL Service
-  db:
-    image: mysql:5.7.22
+  mysql:
     container_name: pp-sponsorship-db
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "3306:3306"
+    image: mysql:5.7.22
+    restart: always
     environment:
-      MYSQL_DATABASE: sponsorship
       MYSQL_ROOT_PASSWORD: secret
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
+      MYSQL_DATABASE: sponsorship
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+    networks:
+      static:
+        ipv4_address: 172.19.0.14 
     volumes:
       - dbdata:/var/lib/mysql/
-      - ./mysql/my.cnf:/etc/mysql/my.cnf
-    networks:
-      - pp-sponsorship-network
+    ports:
+      - "3306:3306"
 
 #Docker Networks
 networks:
-  pp-sponsorship-network:
+  static:
     driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "true"
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.19.0.13/20 
+
 #Volumes
 volumes:
   dbdata:
