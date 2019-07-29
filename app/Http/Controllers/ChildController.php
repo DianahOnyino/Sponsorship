@@ -50,7 +50,7 @@ class ChildController extends Controller
 
             $childRepository->saveChildDetails($person_details_id, $input);
         } catch (\Exception $exception){
-
+            return $exception->getMessage();
         }
 
         return "Information successfully saved!";

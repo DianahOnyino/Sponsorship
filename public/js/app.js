@@ -53415,9 +53415,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/donyino/Documents/PersonalDevelopmentProjects/sponsorship/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/donyino/Documents/PersonalDevelopmentProjects/sponsorship/resources/assets/js/app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! /Users/donyino/Documents/PersonalDevelopmentProjects/sponsorship/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/administrator/Projects/PersonalProjects/Sponsorship/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/administrator/Projects/PersonalProjects/Sponsorship/resources/assets/js/app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! /home/administrator/Projects/PersonalProjects/Sponsorship/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
