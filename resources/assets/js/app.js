@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui-notification', 'smart-table', 'ngResource', 'ngRoute'], [
+var app = angular.module('app', ['ui-notification', 'smart-table', 'ngResource', 'ngRoute', 'ngAnimate', 'ngSanitize', 'angularjsToast'], [
     '$interpolateProvider', function ($interpolateProvider) {
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');
@@ -12,8 +12,10 @@ app.config(function (NotificationProvider) {
         startRight: 10,
         verticalSpacing: 20,
         horizontalSpacing: 20,
-        positionX: 'center',
-        positionY: 'top'
+        positionX: 'right',
+        positionY: 'bottom'
+        // positionX: 'center',
+        // positionY: 'top'
     });
 });
 
@@ -79,7 +81,7 @@ app.factory('ChildSponsorRecords', ['$http', 'FilteredTableState', function ($ht
 }]);
 
 
-app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 'ChildRecords', function ($http, $scope, $window, Notification, ChildRecords) {
+app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 'toast', 'ChildRecords', function ($http, $scope, $window, Notification, toast, ChildRecords) {
     $scope.children_records = [];
     $scope.itemsByPage = 20;
 
@@ -168,7 +170,12 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
                 }
 
                 if (response.data.hasOwnProperty('duplicate_error') === false && response.data.hasOwnProperty('errors') === false) {
-                    Notification.success(response.data);
+                    // Notification.success(response.data);
+                    // toast({
+                    //     duration: 10000,
+                    //     message: response.data,
+                    //     className: "alert-success"
+                    // });
 
                     $scope.errors = "";
 
@@ -190,6 +197,13 @@ app.controller('MainController', ['$http', '$scope', '$window', 'Notification', 
                     $('#createChildRecordModal').foundation('close');
 
                     $window.location.reload();
+
+                    Notification.success(response.data);
+                    toast({
+                        duration: 10000,
+                        message: response.data,
+                        className: "alert-success"
+                    });
                 }
             })
     };

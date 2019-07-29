@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="29fd469b-aae3-41c7-9f57-b747dbfab38e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/conf.d/app.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChildController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChildController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/app.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,44 +28,6 @@
         <option value="JavaScript File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>conso</find>
-      <find>= null</find>
-      <find>/get-updated-children-data</find>
-      <find>deleteChildDetailsModal</find>
-      <find>Are you sure you want to delete this record</find>
-      <find>createChildRecordModal</find>
-      <find>saveSponsorDetails</find>
-      <find>The form submitted has errors, kindly correct and submit agai</find>
-      <find>contr</find>
-      <find>editChildRecordModal</find>
-      <find>hidd</find>
-      <find>update</find>
-      <find>butt</find>
-      <find>autolo</find>
-      <find>&gt;home</find>
-      <find>editc</find>
-      <find>subsequent records attached to this record</find>
-      <find>delete</find>
-      <find>Modulr Logo</find>
-      <find>ui-n</find>
-      <find>rout</find>
-      <find>scrip</find>
-      <find>bootstrap</find>
-      <find>jquer</find>
-      <find>console</find>
-      <find>relo</find>
-      <find>$window</find>
-      <find>mysqld.sock</find>
-      <find>/local/bin</find>
-      <find>/usr/local/bin/run</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>$child_details</replace>
-      <replace>createSponsorRecordModal</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -162,12 +127,6 @@
       <path value="$PROJECT_DIR$/vendor/league/fractal" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2016" />
-    <option name="y" value="-4" />
-    <option name="width" value="1680" />
-    <option name="height" value="987" />
-  </component>
   <component name="ProjectId" id="1OXdojIx3DU0afVgPSbkYtAkcxX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -238,6 +197,7 @@
       <workItem from="1559106123750" duration="19000" />
       <workItem from="1564046147791" duration="2255000" />
       <workItem from="1564128053040" duration="22000" />
+      <workItem from="1564384362440" duration="689000" />
     </task>
     <servers />
   </component>
@@ -258,7 +218,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

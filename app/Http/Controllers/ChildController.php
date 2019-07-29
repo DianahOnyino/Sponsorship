@@ -36,7 +36,7 @@ class ChildController extends Controller
 
         $existing_person_record = Person::where('first_name', $input['first_name'])
                                       ->where('last_name', $input['last_name'])
-                                      ->where('middle_name', $input['last_name'])
+                                      ->where('middle_name', $input['middle_name'])
                                       ->count();
 
         if ($existing_person_record > 0) {
@@ -80,7 +80,7 @@ class ChildController extends Controller
 
             $childRepository->saveChildDetails($person_details_id, $input, $person_details_id);
         } catch (\Exception $exception){
-
+            return $exception->getMessage();
         }
 
         return "Information successfully saved!";

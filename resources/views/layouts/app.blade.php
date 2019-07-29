@@ -18,6 +18,9 @@
     {{--Angular UI Notification--}}
     <script src="/css/angular-ui-notification.min.css"></script>
 
+    {{--Angular Toast--}}
+    <script src="/angularjs-toast/angularjs-toast.min.css"></script>
+
     {{--Bootstrap--}}
     <script src="/bootstrap/bootstrap.min.css"></script>
 
@@ -26,6 +29,15 @@
 
     {{--Angular--}}
     <script src="/angular/angular.min.js"></script>
+
+    <!-- Angular sanitize -->
+    <script src="/js/angular-sanitize/angular-sanitize.min.js"></script>
+
+    <!-- Angular animate -->
+    <script src="/js/angular-animate/angular-animate.min.js"></script>
+
+    <!-- Angular toast -->
+    <script src="/angularjs-toast/angularjs-toast.min.js"></script>
 
     {{--Angular UI Notification--}}
     <script src="/js/angular-ui-notification.min.js"></script>
